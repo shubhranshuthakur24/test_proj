@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 
-import 'SRC/FCM/notifiation_handler.dart';
 import 'SRC/adapter/token_services.dart';
 import 'SRC/internationalization_using_getx/getx_Internationalization.dart';
 
@@ -61,7 +60,7 @@ class GiversHealth extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    NotificationHandler.messageHandler();
+    // NotificationHandler.messageHandler();
 
     return ScreenUtilInit(
       designSize: Size(375, 812),
