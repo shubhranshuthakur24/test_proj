@@ -1,6 +1,8 @@
 import 'package:caregiver_app/test.dart';
 import 'package:device_preview/device_preview.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
@@ -9,34 +11,34 @@ import 'SRC/adapter/token_services.dart';
 import 'SRC/internationalization_using_getx/getx_Internationalization.dart';
 
 Future<void> main() async {
-  // WidgetsFlutterBinding.ensureInitialized();
-  // if (GetPlatform.isMobile) {
-  //   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
-  //   await Firebase.initializeApp();
-  // } else if (GetPlatform.isWeb) {
-  //   await Firebase.initializeApp(
-  //     options: const FirebaseOptions(
-  //         apiKey: "AIzaSyBOruhr02Hwqt9LAtxJC2Gf5NQZVSeKQAU",
-  //         authDomain: "gvhealth-web.firebaseapp.com",
-  //         projectId: "gvhealth-web",
-  //         storageBucket: "gvhealth-web.appspot.com",
-  //         messagingSenderId: "321487049217",
-  //         appId: "1:321487049217:web:10ebfbc4f1e3e0a904e600",
-  //         measurementId: "G-R3JJX482B8"),
-  //   );
-  // } else {
-  //   await Firebase.initializeApp(
-  //     options: const FirebaseOptions(
-  //         apiKey: "AIzaSyBOruhr02Hwqt9LAtxJC2Gf5NQZVSeKQAU",
-  //         authDomain: "gvhealth-web.firebaseapp.com",
-  //         projectId: "gvhealth-web",
-  //         storageBucket: "gvhealth-web.appspot.com",
-  //         messagingSenderId: "321487049217",
-  //         appId: "1:321487049217:web:10ebfbc4f1e3e0a904e600",
-  //         measurementId: "G-R3JJX482B8"),
-  //   );
-  // }
-  //
+  WidgetsFlutterBinding.ensureInitialized();
+  if (GetPlatform.isMobile) {
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+    await Firebase.initializeApp();
+  } else if (GetPlatform.isWeb) {
+    await Firebase.initializeApp(
+      options: const FirebaseOptions(
+          apiKey: "AIzaSyBOruhr02Hwqt9LAtxJC2Gf5NQZVSeKQAU",
+          authDomain: "gvhealth-web.firebaseapp.com",
+          projectId: "gvhealth-web",
+          storageBucket: "gvhealth-web.appspot.com",
+          messagingSenderId: "321487049217",
+          appId: "1:321487049217:web:10ebfbc4f1e3e0a904e600",
+          measurementId: "G-R3JJX482B8"),
+    );
+  } else {
+    await Firebase.initializeApp(
+      options: const FirebaseOptions(
+          apiKey: "AIzaSyBOruhr02Hwqt9LAtxJC2Gf5NQZVSeKQAU",
+          authDomain: "gvhealth-web.firebaseapp.com",
+          projectId: "gvhealth-web",
+          storageBucket: "gvhealth-web.appspot.com",
+          messagingSenderId: "321487049217",
+          appId: "1:321487049217:web:10ebfbc4f1e3e0a904e600",
+          measurementId: "G-R3JJX482B8"),
+    );
+  }
+
   // FirebaseMessaging.onBackgroundMessage(NotificationHandler.backroundHandler);
   await SentryFlutter.init(
     (options) {
